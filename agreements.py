@@ -53,3 +53,22 @@ def run_demo():
     contract.log_event("verified")
     print("Audit trail length:", len(contract.audit_trail))
     return contract
+
+def print_audit(contract):
+    print("Audit Log:")
+    for entry in contract.audit_trail:
+        print(entry)
+
+def summary(contract):
+    print("Summary:")
+    print("Client:", contract.client)
+    print("Provider:", contract.provider)
+
+def main():
+    c = run_demo()
+    print_audit(c)
+    summary(c)
+    print("Process finished")
+
+if __name__ == "__main__":
+    main()
